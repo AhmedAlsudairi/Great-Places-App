@@ -14,6 +14,7 @@ const newPlaceScreen = props => {
 
     const onSaveHandler =()=> {
 
+        props.navigation.goBack();
     }
     return (
         <ScrollView>

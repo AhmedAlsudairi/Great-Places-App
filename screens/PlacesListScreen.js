@@ -17,7 +17,7 @@ placesListScreen.navigationOptions = props => {
 
   return{
       headerTitle: 'My Places',
-    headerRight: <HeaderButtons HeaderButtonComponent={HeaderButton}>
+    headerRight: ()=> <HeaderButtons HeaderButtonComponent={HeaderButton}>
         <Item 
         iconName='ios-add'
         iconSize={25}
