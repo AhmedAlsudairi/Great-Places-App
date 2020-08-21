@@ -2,18 +2,23 @@ import React, { useState } from 'react';
 import {View,Text,TextInput, StyleSheet, Button} from 'react-native';
 import colors from '../constants/colors';
 import { ScrollView } from 'react-native-gesture-handler';
-
+import { useDispatch } from 'react-redux';
+import {addPlaceAction} from '../store/actions';
 const newPlaceScreen = props => {
 
-    const [text,setText] = useState('');
+    
+    const [title,setTitle] = useState('');
 
     const onChangHandler = (value) => {
 
-        setText(value)
+        setTitle(value)
     }
 
-    const onSaveHandler =()=> {
+    const dispatch = useDispatch();
 
+
+    const onSaveHandler =()=> {
+        dispatch(addPlaceAction(title))
         props.navigation.goBack();
     }
     return (
@@ -22,7 +27,7 @@ const newPlaceScreen = props => {
             <Text>NewPlaceScreen</Text>
             <Text>add place</Text>
             <TextInput
-            value={text}
+            value={title}
             style={styles.input}
             onChangeText={onChangHandler}
             />

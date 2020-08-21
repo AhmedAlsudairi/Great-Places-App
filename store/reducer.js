@@ -4,7 +4,7 @@ const initialStete = {
     places: []
 }
 
-const placesReducer = (state = initialStete, action) => {
+export default placesReducer = (state = initialStete, action) => {
     switch(action.type){
         case ADD_PLACE:
             const newPlace = new Place(new Date().toString(),action.title)
@@ -14,5 +14,3 @@ const placesReducer = (state = initialStete, action) => {
             return state;
     }
 }
-
-export default placesReducer;

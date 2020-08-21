@@ -1,13 +1,19 @@
 import React from 'react';
 import {View,Text, StyleSheet} from 'react-native';
 
-const PlaceDetailsScreen = props => {
+const placeDetailsScreen = props => {
 
     return (
         <View style={styles.screen}>
             <Text>PlaceDetailsScreen</Text>
         </View>
     )
+}
+
+placeDetailsScreen.navigationOptions = props => {
+    return{
+        headerTitle: props.navigation.getParam('title')
+    }
 }
 
 const styles = StyleSheet.create({
@@ -18,4 +24,4 @@ const styles = StyleSheet.create({
     }
 })
 
-export default PlaceDetailsScreen;
+export default placeDetailsScreen;
