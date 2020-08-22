@@ -6,7 +6,13 @@ import {createStore,combineReducers,applyMiddleware} from 'redux';
 import {Provider} from 'react-redux';
 import ReduxThunk from 'redux-thunk'
 import reducer from './store/reducer';
+import {init} from './helper/DB';
 
+init().then(()=>{
+  console.log('initialize SQLite success.');
+}).catch((err)=>{
+  console.log('initialize SQLite failed. '+err);
+})
 const rootReducer = combineReducers({
   places: reducer 
 });
