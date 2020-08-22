@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet } from 'react-native';
 import Navigator from './navigation/PlacesNavigator';
 import {createStore,combineReducers,applyMiddleware} from 'redux';
 import {Provider} from 'react-redux';
