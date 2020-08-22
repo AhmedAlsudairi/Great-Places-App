@@ -9,7 +9,7 @@ const newPlaceScreen = props => {
 
     
     const [title,setTitle] = useState('');
-
+    const [imageURI,setImageURI] = useState();
     const onChangHandler = (value) => {
 
         setTitle(value)
@@ -18,8 +18,11 @@ const newPlaceScreen = props => {
     const dispatch = useDispatch();
 
 
+    const imageTakenHandler = (uri) => {
+        setImageURI(uri);
+    }
     const onSaveHandler =()=> {
-        dispatch(addPlaceAction(title))
+        dispatch(addPlaceAction(title,imageURI))
         props.navigation.goBack();
     }
     return (
@@ -32,7 +35,7 @@ const newPlaceScreen = props => {
             style={styles.input}
             onChangeText={onChangHandler}
             />
-            <ImagePicker/>
+            <ImagePicker imageTakenHandler={imageTakenHandler}/>
             <Button title='Add Place' color={colors.primary} onPress={onSaveHandler}/>
         </View>
         </ScrollView>
@@ -55,7 +58,8 @@ const styles = StyleSheet.create({
         borderBottomColor: 'gray',
         borderBottomWidth: 1,
         width: 200,
-        marginVertical: 20
+        marginVertical: 20,
+
         
     }
 })

@@ -5,9 +5,10 @@ const initialStete = {
 }
 
 const placesReducer = (state = initialStete, action) => {
+    console.log(action.uri);
     switch(action.type){
         case ADD_PLACE:
-            const newPlace = new Place(new Date().toString(),action.title)
+            const newPlace = new Place(new Date().toString(),action.title,action.uri)
             const updatedPlaces = state.places.concat(newPlace);
             return {...state,places: updatedPlaces}
         default:

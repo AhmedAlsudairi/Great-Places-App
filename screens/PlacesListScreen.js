@@ -11,7 +11,7 @@ const placesListScreen = props => {
     const places = useSelector((state)=>state.places.places);
 
     const renderPlaces = (place) => {
-        return <PlaceItem title={place.item.title} image={null} address={null} onPress={()=>{
+        return <PlaceItem title={place.item.title} image={place.item.imageURI} address={null} onPress={()=>{
             props.navigation.navigate('placeDetails',{
                 title: place.item.title,
                 id: place.item.id
