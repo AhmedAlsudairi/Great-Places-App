@@ -5,6 +5,7 @@ import { ScrollView } from 'react-native-gesture-handler';
 import { useDispatch } from 'react-redux';
 import {addPlaceAction} from '../store/actions';
 import ImagePicker from '../components/ImagePicker';
+import LocationPicker from '../components/LocationPicker';
 const newPlaceScreen = props => {
 
     
@@ -36,6 +37,7 @@ const newPlaceScreen = props => {
             onChangeText={onChangHandler}
             />
             <ImagePicker imageTakenHandler={imageTakenHandler}/>
+            <LocationPicker/>
             <Button title='Add Place' color={colors.primary} onPress={onSaveHandler}/>
         </View>
         </ScrollView>

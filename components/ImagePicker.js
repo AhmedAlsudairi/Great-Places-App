@@ -31,7 +31,7 @@ const ImagePicker = props => {
             <View style={styles.imagePreview}>
                {!pickedImage ?  <Text>There is no image yet!</Text> : <Image style={styles.image} source={{uri: pickedImage}}/>}
             </View>
-            <Button title='Take Image' color={colors} onPress={getPermissionCamera} color={colors.primary}/>
+            <Button title='Take Image' color={colors.primary} onPress={getPermissionCamera} color={colors.primary}/>
         </View>
     );
 }

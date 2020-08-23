@@ -1,14 +1,18 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import {View,Text, StyleSheet,FlatList} from 'react-native';
 import {HeaderButtons,Item} from 'react-navigation-header-buttons';
 import HeaderButton from '../components/HeaderButton';
 import colors from '../constants/colors';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import PlaceItem from '../components/PlaceItem';
-
+import {fetchPlacesAction} from '../store/actions'
 const placesListScreen = props => {
 
     const places = useSelector((state)=>state.places.places);
+    const dispatch = useDispatch();
+    useEffect(()=>{
+        dispatch(fetchPlacesAction());
+    },[dispatch]);
 
     const renderPlaces = (place) => {
         return <PlaceItem title={place.item.title} image={place.item.imageURI} address={null} onPress={()=>{
